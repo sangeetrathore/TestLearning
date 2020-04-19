@@ -5,6 +5,7 @@ public class ConcatString {
 	public static void main(String[] args) {
 		ConcatString obj = new ConcatString();
 		String firstarg = args[0];
+		
 		if ("largest".equalsIgnoreCase(firstarg)) {
 			String firstnumber = args[1];
 			String secondnumber = args[2];
@@ -17,12 +18,12 @@ public class ConcatString {
 
 		else if ("reverse".equalsIgnoreCase(firstarg)) {
 			String firstnumber = args[1];
-			//String secondnumber = args[2];
-			//String thirdnumber = args[3];
-
+			
 			obj.reversenumber(firstnumber);
 
 		}
+		
+		
 	}
 
 	private void largestnumber(int a, int b, int c) {
