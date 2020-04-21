@@ -1,5 +1,5 @@
 package com.sangeet.StringFunctions;
-
+import java.util.*;
 public class ConcatString {
 
 		public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class ConcatString {
 			+"\n"+"enter term 'areacode' and then number  to get the name of state of that state code");
 			
 			ConcatString obj = new ConcatString();
-		String firstarg = args[0];
+			String firstarg = args[0];
 		
 		if ("largest".equalsIgnoreCase(firstarg)) {
 			String firstnumber = args[1];
@@ -48,8 +48,10 @@ public class ConcatString {
 
 		else if ("areacode".equalsIgnoreCase(firstarg)) {
 			String firstnumber = args[1];
-			obj.areacode(Integer.parseInt(firstnumber));
-
+			HashMap hm=new HashMap();
+			hm=obj.stateDataFid(hm);
+			//obj.findState(hm,Integer.parseInt(firstnumber));
+			System.out.println("State name is : "+obj.findState(hm,Integer.parseInt(firstnumber)));	
 		}
 
 		else {
@@ -110,185 +112,156 @@ System.out.println(a+ "  multiplied by  "+i+ "  is  =>  " +a*i);
 		}
 		}
 	
-	private void areacode(int a) {
-		
-		if (a==205||a== 251||a==256||a==334||a==938){
-			System.out.println("state of given state area code is Alabama ");
-		}
-		else if (a==907){
-			System.out.println("state of given state area code is Alaska ");
-		}
-		else if (a==480||a==520||a==602||a==623||a==928){
-			System.out.println("state of given state area code is Arizona ");}
 	
+	private HashMap stateDataFid(HashMap hm)
+	{
+		int AlabamaPin[]		={205, 251, 256, 334, 938};
+		int ArizonaPin	[]		={480, 520, 602, 623, 928,123};
+		int AlaskaPin[]			=	{907};
+		int ArkansasPin[]		={	479, 501, 870};
+		int CaliforniaPin[]		={	209, 213, 279, 310, 323, 408, 415, 424, 442, 510, 530, 559, 562, 619, 626, 628, 650, 657, 661, 669, 707, 714, 747, 760, 805, 818, 820, 831, 858, 909, 916, 925, 949, 951};
+		int ColoradoPin[]		={	303, 719, 720, 970};
+		int ConnecticutPin[]	={	203, 475, 860, 959};
+		int DelawarePin[]		={	302};
+		int FloridaPin[]		={	239, 305, 321, 352, 386, 407, 561, 727, 754, 772, 786, 813, 850, 863, 904, 941, 954};
+		int GeorgiaPin[]		={	229, 404, 470, 478, 678, 706, 762, 770, 912};
+		int HawaiiPin[]			={	808};
+		int IdahoPin[]			={	208, 986};
+		int IllinoisPin[]		={	217, 224, 309, 312, 331, 618, 630, 708, 773, 779, 815, 847, 872};
+		int IndianaPin[]		={	219, 260, 317, 463, 574, 765, 812, 930};
+		int IowaPin[]			={	319, 515, 563, 641, 712};
+		int KansasPin[]			={	316, 620, 785, 913};
+		int KentuckyPin[]		={	270, 364, 502, 606, 859};
+		int LouisianaPin[]		={	225, 318, 337, 504, 985};
+		int MainePin[]			={	207};
+		int MarylandPin[]		={	240, 301, 410, 443, 667};
+		int MassachusettsPin[]	={	339, 351, 413, 508, 617, 774, 781, 857, 978};
+		int MichiganPin[]		={	231, 248, 269, 313, 517, 586, 616, 734, 810, 906, 947, 989};
+		int MinnesotaPin[]		={	218, 320, 507, 612, 651, 763, 952};
+		int MississippiPin[]	={	228, 601, 662, 769};
+		int MissouriPin[]		={	314, 417, 573, 636, 660, 816};
+		int MontanaPin[]		={	406};
+		int NebraskaPin[]		={	308, 402, 531};
+		int NevadaPin[]			={	702, 725, 775};
+		int NewHampshirePin[]	={	603};
+		int NewJerseyPin[]		={	201, 551, 609, 640, 732, 848, 856, 862, 908, 973};
+		int NewMexicoPin[]		={	505, 575};
+		int NewYorkPin[]		={	212, 315, 332, 347, 516, 518, 585, 607, 631, 646, 680, 716, 718, 838, 845, 914, 917, 929, 934};
+		int NorthCarolinaPin[]	={	252, 336, 704, 743, 828, 910, 919, 980, 984};
+		int NorthDakotaPin[]	={	701};
+		int OhioPin[]			={	216, 220, 234, 330, 380, 419, 440, 513, 567, 614, 740, 937};
+		int OklahomaPin[]		={	405, 539, 580, 918};
+		int OregonPin[]			={	458, 503, 541, 971};
+		int PennsylvaniaPin[]	={	215, 223, 267, 272, 412, 445, 484, 570, 610, 717, 724, 814, 878};
+		int RhodeIslandPin[]	={	401};
+		int SouthCarolinaPin[]	={	803, 843, 854, 864};
+		int SouthDakotaPin[]	={	605};
+		int TennesseePin[]		={	423, 615, 629, 731, 865, 901, 931};
+		int TexasPin[]			={	210, 214, 254, 281, 325, 346, 361, 409, 430, 432, 469, 512, 682, 713, 726, 737, 806, 817, 830, 832, 903, 915, 936, 940, 956, 972, 979};
+		int UtahPin[]			={	385, 435, 801};
+		int VermontPin[]		={	802};
+		int VirginiaPin[]		={	276, 434, 540, 571, 703, 757, 804};
+		int WashingtonPin[]		={	206, 253, 360, 425, 509, 564};
+		int WashingtonDCPin[]	={	202};
+		int WestVirginiaPin[]	={	304, 681};
+		int WisconsinPin[]		={	262, 414, 534, 608, 715, 920};
+		int WyomingPin[]		={	307};
+		int AmericanSamoaPin[]	={	684};
+		int GuamPin[]			={	671};
+		int NorthernMarianaIslandsPin[]={	670};
+		int PuertoRicoPin[]		={	787, 939};
+		int VirginIslandsPin[]	={	340};
+		hm.put("Alabama",AlabamaPin);
+		hm.put("Arizona",ArizonaPin);
+		hm.put("Alaska",AlaskaPin);
+		hm.put("Arkansas",ArkansasPin);
+		hm.put("California",CaliforniaPin);
+		hm.put("Colorado",ColoradoPin);
+		hm.put("Connecticut",ConnecticutPin);
+		hm.put("Delaware",DelawarePin);
+		hm.put("Florida",FloridaPin);
+		hm.put("Georgia",GeorgiaPin);
+		hm.put("Hawaii",HawaiiPin);
+		hm.put("Idaho",IdahoPin);
+		hm.put("Illinois",IllinoisPin);
+		hm.put("Indiana",IndianaPin);
+		hm.put("Iowa",IowaPin);
+		hm.put("Kansas",KansasPin);
+		hm.put("Kentucky",KentuckyPin);
+		hm.put("Louisiana",LouisianaPin);
+		hm.put("Maine",MainePin);
+		hm.put("Maryland",MarylandPin);
+		hm.put("Massachusetts",MassachusettsPin);
+		hm.put("Michigan",MichiganPin);
+		hm.put("Minnesota",MinnesotaPin);
+		hm.put("Mississippi",MississippiPin);
+		hm.put("Missouri",MissouriPin);
+		hm.put("Montana",MontanaPin);
+		hm.put("Nebraska",NebraskaPin);
+		hm.put("Nevada",NevadaPin);
+		hm.put("NewHampshire",NewHampshirePin);
+		hm.put("NewJersey",NewJerseyPin);
+		hm.put("NewMexico",NewMexicoPin);
+		hm.put("NewYork",NewYorkPin);
+		hm.put("NorthCarolina",NorthCarolinaPin);
+		hm.put("NorthDakota",NorthDakotaPin);
+		hm.put("Ohio",OhioPin);
+		hm.put("Oklahoma",OklahomaPin);
+		hm.put("Oregon",OregonPin);
+		hm.put("Pennsylvania",PennsylvaniaPin);
+		hm.put("RhodeIsland",RhodeIslandPin);
+		hm.put("SouthCarolina",SouthCarolinaPin);
+		hm.put("SouthDakota",SouthDakotaPin);
+		hm.put("Tennessee",TennesseePin);
+		hm.put("Texas",TexasPin);
+		hm.put("Utah",UtahPin);
+		hm.put("Vermont",VermontPin);
+		hm.put("Virginia",VirginiaPin);
+		hm.put("Washington",WashingtonPin);
+		hm.put("WashingtonDC",WashingtonDCPin);
+		hm.put("WestVirginia",WestVirginiaPin);
+		hm.put("Wisconsin",WisconsinPin);
+		hm.put("Wyoming",WyomingPin);
+		hm.put("AmericanSamoa",AmericanSamoaPin);
+		hm.put("Guam",GuamPin);
+		hm.put("NorthernMarianaIslands",NorthernMarianaIslandsPin);
+		hm.put("PuertoRico",PuertoRicoPin);
+		hm.put("VirginIslands",VirginIslandsPin);
 
-		else if (a==479||a==501||a==870){
-				System.out.println("state of given state area code is Arkansas ");}
+		return hm;
 		
-		else if (a==209||a==213||a==279||a==310||a==323||a==408||a==415||a==424||a==442||a==510||a==530||a==559||a==562||a==619||a==626||a==628||a==650||a==657||a==661||a==669||a==707||a==714||a==747||a==760||a==805||a==818||a==820||a==831||a==858||a==909||a==916||a==925||a==949||a==951){
-			System.out.println("state of given state area code is California ");}
-	
-		else if (a==303||a==719||a==720||a==970){
-			System.out.println("state of given state area code is Colorado ");}
-	
-		else if (a==203||a==475||a==860||a==959){
-			System.out.println("state of given state area code is Connecticut ");}
+	}
+	public String findState(HashMap hm,int pin)
+	{
+		boolean found=false;
 		
-		else if (a==302){
-			System.out.println("state of given state area code is Delaware ");}
-		
-		else if (a==239||a==305||a==321||a==352||a==386||a==407||a==561||a==727||a==754||a==772||a==786||a==813||a==850||a==863||a==904||a==941||a==954){
-			System.out.println("state of given state area code is Florida ");}
-		
-		else if (a==229||a==404||a==470||a==478||a==678||a==706||a==762||a==770||a==912){
-			System.out.println("state of given state area code is Georgia ");}
-		
-		else if (a==808){
-			System.out.println("state of given state area code is Hawaii ");}
-		
-		else if (a==208||a==986){
-			System.out.println("state of given state area code is Idaho ");}
-		
-		else if (a==217||a==224||a==309||a==312||a==331||a==618||a==630||a==708||a==773||a==779||a==815||a==847||a==872){
-			System.out.println("state of given state area code is Illinois ");}
-		
-		else if (a==219||a==260||a==317||a==463||a==574||a==765||a==812||a==930){
-			System.out.println("state of given state area code is Indiana ");}
-		
-		else if (a==319||a==515||a==563||a==641||a==712){
-			System.out.println("state of given state area code is Iowa ");}
-		
-		else if (a==316||a==620||a==785||a==913){
-			System.out.println("state of given state area code is Kansas ");}
-		
-		else if (a==270||a==364||a==502||a==606||a==859){
-			System.out.println("state of given state area code is Kentucky ");}
-		
-		else if (a==225||a==318||a==337||a==504||a==985){
-			System.out.println("state of given state area code is Louisiana ");}
-		
-		else if (a==207){
-			System.out.println("state of given state area code is Maine ");}
-		
-		else if (a==240||a==301||a==410||a==443||a==667){
-			System.out.println("state of given state area code is Maryland ");}
-		
-		else if (a==339||a==351||a==413||a==508||a==617||a==774||a==781||a==857||a==978){
-			System.out.println("state of given state area code is Massachusetts ");}
-		
-		else if (a==231||a==248||a==269||a==313||a==517||a==586||a==616||a==734||a==810||a==906||a==947||a==989){
-			System.out.println("state of given state area code is Michigan ");}
-		
-		else if (a==218||a==320||a==507||a==612||a==651||a==763||a==952){
-			System.out.println("state of given state area code is Minnesota ");}
-		
-		else if (a==228||a==601||a==662||a==769){
-			System.out.println("state of given state area code is Mississippi ");}
-		
-		else if (a==314||a==417||a==573||a==636||a==660||a==816){
-			System.out.println("state of given state area code is Missouri ");}
-		
-		else if (a==406){
-			System.out.println("state of given state area code is Montana ");}
-		
-		else if (a==308||a==402||a==531){
-			System.out.println("state of given state area code is Nebraska ");}
-		
-		else if (a==702||a==725||a==775){
-			System.out.println("state of given state area code is Nevada ");}
-		
-		else if (a==603){
-			System.out.println("state of given state area code is New Hampshire ");}
-		
-		else if (a==201||a==551||a==609||a==640||a==732||a==848||a==856||a==862||a==908||a==973){
-			System.out.println("state of given state area code is New Jersey ");}
-		
-		else if (a==505||a==575){
-			System.out.println("state of given state area code is New Mexico ");}
-		
-		else if (a==212||a==315||a==332||a==347||a==516||a==518||a==585||a==607||a==631||a==646||a==680||a==716||a==718||a==838||a==845||a==914||a==917||a==929||a==934){
-			System.out.println("state of given state area code is New York ");}
-		
-		else if (a==252||a==336||a==704||a==743||a==828||a==910||a==919||a==980||a==984){
-			System.out.println("state of given state area code is North Carolina ");}
-		
-		else if (a==701){
-			System.out.println("state of given state area code is North Dakota ");}
-	
-		else if (a==216||a==220||a==234||a==330||a==380||a==419||a==440||a==513||a==567||a==614||a==740||a==937){
-			System.out.println("state of given state area code is Ohio"); }
-		
-		else if (a==405||a==539||a==580||a==918){
-			System.out.println("state of given state area code is Oklahoma ");}
-		
-		else if (a==458||a==503||a==541||a==971){
-			System.out.println("state of given state area code is Oregon ");}
-		
-		else if (a==215||a==223||a==267||a==272||a==412||a==445||a==484||a==570||a==610||a==717||a==724||a==814||a==878){
-			System.out.println("state of given state area code is Pennsylvania ");}
-		
-		else if (a==401){
-			System.out.println("state of given state area code is Rhode Island ");}
-		
-		
-		else if (a==803||a==843||a==854||a==864){
-			System.out.println("state of given state area code is South Carolina ");}
-		
-		else if (a==605){
-			System.out.println("state of given state area code is South Dakota ");}
-		
-		else if (a==423||a==615||a==629||a==731||a==865||a==901||a==931){
-			System.out.println("state of given state area code is Tennessee ");}
-		
-		else if (a==210||a==214||a==254||a==281||a==325||a==346||a==361||a==409||a==430||a==432||a==469||a==512||a==682||a==713||a==726||a==737||a==806||a==817||a==830||a==832||a==903||a==915||a==936||a==940||a==956||a==972||a==979){
-			System.out.println("state of given state area code is Texas ");}
-		
-		else if (a==385||a==435||a==801){
-			System.out.println("state of given state area code is Utah ");}
-		
-		else if (a==802){
-			System.out.println("state of given state area code is Vermont ");}
-		
-		else if (a==276||a==434||a==540||a==571||a==703||a==757||a==804){
-			System.out.println("state of given state area code is Virginia ");}
-		
-		else if (a==206||a==253||a==360||a==425||a==509||a==564){
-			System.out.println("state of given state area code is Washington ");}
-		
-		else if (a==202){
-			System.out.println("state of given state area code is Washington, DC ");}
-		
-		else if (a==304||a==681){
-			System.out.println("state of given state area code is West Virginia ");}
-		
-		else if (a==262||a==414||a==534||a==608||a==715||a==920){
-			System.out.println("state of given state area code is Wisconsin	 ");}
-		
-		else if (a==307){
-			System.out.println("state of given state area code is Wyoming ");}
-		
-		else if (a==684){
-			System.out.println("state of given state area code is American Samoa ");}
-		
-		else if (a==671){
-			System.out.println("state of given state area code is Guam	 ");}
-		
-		else if (a==670){
-			System.out.println("state of given state area code is Northern Mariana Islands ");}
-		
-		else if (a==787||a==939){
-			System.out.println("state of given state area code is Puerto Rico	 ");}
-		
-		else if (a==671){
-			System.out.println("state of given state area code is Guam	 ");}
-		
-		else if (a==340){
-			System.out.println("state of given state area code is Virgin Islands	 ");}
-		
-		else {
-			System.out.println("Enter valid state area code");}
+		Set set= hm.entrySet();
+		Iterator  it =set.iterator();
+				       
+		while(it.hasNext())  
+		{  
+			Map.Entry record=(Map.Entry)it.next();    
+			int statePinList[]=(int[])record.getValue();
+			for(int z=0;z<statePinList.length;z++)
+			{
+				if(statePinList[z]==pin)
+				{
+					found=true;
+					return (String)record.getKey();
+				}
+					
+			}
+		}  
+		if(found==false)
+			System.out.println("Pin not found");
+		return "not found";
 		
 		
 	}
+
 }
+	
+
+
+
 	
